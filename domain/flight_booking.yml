@@ -1,0 +1,52 @@
+version: "3.1"
+
+slots:
+  departure_city:
+    type: text
+    mappings:
+      - type: custom
+  flight_destination:
+    type: text
+    mappings:
+      - type: custom
+  passenger_count:
+    type: text
+    mappings:
+      - type: custom
+  class_preference:
+    type: text
+    mappings:
+      - type: custom
+  flight_confirmation:
+    type: bool
+    mappings:
+      - type: custom
+
+responses:
+
+  utter_confirm_flight_booking:
+    - text: "Thanks for booking your flight! Your flight from {departure_city} to {flight_destination} for {passenger_count} passengers in {class_preference} class has been confirmed."
+
+  utter_cancel_flight_booking:
+    - text: "Cancelling the flight booking request."
+
+  utter_ask_departure_city:
+    - text: "What is your departure city?"
+
+  utter_ask_flight_destination:
+    - text: "Where would you like to fly to?"
+  
+  utter_ask_departure_date:
+    - text: "What is your preferred departure date?"
+
+  utter_ask_return_date:
+    - text: "Do you have a return date in mind? If not, you can say 'none'."
+
+  utter_ask_passenger_count:
+    - text: "How many passengers will be traveling?"
+
+  utter_ask_class_preference:
+    - text: "What class do you prefer (e.g., economy, business)?"
+
+  utter_ask_flight_confirmation:
+    - text: "Are you sure you want to make a flight booking with the following details - Departure city: {departure_city}, Destination: {flight_destination}, Passengers: {passenger_count}, Class: {class_preference}?"

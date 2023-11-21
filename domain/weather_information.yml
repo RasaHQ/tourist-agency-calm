@@ -1,0 +1,22 @@
+version: "3.1"
+
+actions:
+  - action_give_weather
+
+slots:
+  country:
+    type: text
+    mappings:
+      - type: custom
+  temperature:
+    type: float
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_country:
+    - text: "Please specify the country"
+  utter_nice_choice:
+    - text: "Nice choice, since the temperature in {country} is {temperature} degrees Celsius"
+  utter_temperature_warning:
+    - text: "Since it is only {temperature} degrees Celsius in {country}, maybe considering another options is not bad idea"

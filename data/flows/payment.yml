@@ -1,0 +1,27 @@
+flows:
+  make_booking_payment:
+    description: This flow allows users to make a payment for a booking.
+    steps:
+      - collect: booking_amount
+        description: the amount to pay for the booking
+      - id: check_balance_step
+        action: action_check_balance
+        next:
+          - if: not slots.has_sufficient_balance
+            then:
+              - action: utter_insufficient_balance
+              - set_slots:
+                  - booking_amount: null
+                next: END
+          - else: final_payment_confirmation
+      - id: final_payment_confirmation
+        collect: "payment_confirmation"
+        ask_before_filling: true
+        next:
+          - if: slots.payment_confirmation
+            then:
+              - action: utter_final_payment_confirmation
+                next: END
+          - else:
+              - action: utter_cancel_payment_confirmation
+                next: END

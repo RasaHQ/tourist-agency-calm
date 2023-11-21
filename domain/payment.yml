@@ -1,0 +1,45 @@
+version: "3.1"
+
+slots:
+  booking_amount:
+    type: text
+    mappings:
+      - type: custom
+  has_sufficient_balance:
+    type: bool
+    mappings:
+      - type: custom
+  payment_amount:
+    type: text
+    mappings:
+      - type: custom
+  payment_confirmation:
+    type: bool
+    mappings:
+      - type: custom
+
+actions:
+  - action_check_balance
+
+responses:
+
+  utter_insufficient_balance:
+    - text: "Sorry, you don't have sufficient balance to make the payment. Please enter a new payment amount."
+
+  utter_payment_confirmation:
+    - text: "Thank you for your payment of {payment_amount} for the {booking_service} booking. Your transaction is confirmed."
+
+  utter_cancel_payment_confirmation:
+    - text: "Cancelling the payment confirmation."
+
+  utter_ask_booking_service:
+    - text: "Which service would you like to book?"
+
+  utter_ask_booking_amount:
+    - text: "How much would you like to pay for the booking?"
+
+  utter_ask_payment_confirmation:
+    - text: "Are you sure you want to make a payment of {payment_amount} for the {booking_service} booking?"
+
+  utter_final_payment_confirmation:
+    - text: "Thank you for your payment of {payment_amount} for the {booking_service} booking. Your transaction is confirmed. Is there anything else I can help you with?"

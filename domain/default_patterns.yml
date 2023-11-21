@@ -1,0 +1,8 @@
+version: "3.1"
+
+responses:
+  utter_corrected_previous_input:
+      - text: "Ok, I am updating {{ context.corrected_slots.keys()|join(', ') }}"
+        metadata:
+          rephrase: True
+          template: jinja

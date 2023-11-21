@@ -1,0 +1,27 @@
+flows:
+  book_accommodation:
+    description: books accommodation for travel purposes
+    name: book accommodation
+    steps:
+      - collect: "person_name"
+        description: "name of the person"
+      - collect: "destination"
+        description: "travel destination"
+      - collect: "number_of_people"
+        description: "number of people for destination"
+      - collect: "number_of_rooms"
+        description: "number of rooms needed for booking"
+      - collect: "days"
+        description: "number of days for staying"
+      - collect: "accommodation_type"
+        description: "booking accommodation type"
+      - collect: booking_confirmation
+        ask_before_filling: true
+        next:
+          - if: slots.booking_confirmation
+            then:
+              - action: utter_confirm_booking_request
+                next: END
+          - else:
+              - action: utter_cancel_booking_request
+                next: END

@@ -1,0 +1,71 @@
+version: "3.1"
+
+slots:
+  person_name:
+    type: text
+    mappings:
+      - type: custom
+  destination:
+    type: text
+    mappings:
+      - type: custom
+  number_of_people:
+    type: text
+    mappings:
+      - type: custom
+  number_of_rooms:
+    type: text
+    mappings:
+      - type: custom
+  days:
+    type: text
+    mappings:
+      - type: custom
+  accommodation_type:
+    type: text
+    mappings:
+      - type: custom
+  booking_confirmation:
+    type: bool
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+  utter_affirm:
+    - text: "Great!"
+
+  utter_deny:
+    - text: "Sure, let me know if there's anything else I can help you with."
+
+  utter_confirm_booking_request:
+    - text: "Thanks {person_name}! Your accommodation request for {number_of_people} people in {accommodation_type} in {destination} for {days} days has been confirmed."
+
+  utter_cancel_booking_request:
+    - text: "Cancelling the accommodation booking request."
+
+  utter_ask_person_name:
+    - text: "May I know your name for the booking?"
+
+  utter_ask_destination:
+    - text: "Where are you planning to go for your stay?"
+  
+  utter_ask_number_of_people:
+    - text: "How many people will be staying?"
+
+  utter_ask_number_of_rooms:
+    - text: "How many rooms do you need?"
+
+  utter_ask_days:
+    - text: "For how many days do you plan to stay?"
+
+  utter_ask_accommodation_type:
+    - text: "What type of accommodation are you looking for (e.g., hotel, house)?"
+
+  utter_ask_booking_confirmation:
+    - text: "Are you sure you want to make a booking with the following details - Name: {person_name}, Destination: {destination}, Accommodation type: {accommodation_type}, Number of people: {number_of_people}, Number of rooms: {number_of_rooms}, Days: {days}?"

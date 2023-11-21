@@ -1,0 +1,19 @@
+flows:
+  weather_information:
+    description: gives weather information of the country to the user
+    name: weather information
+    steps:
+      - collect: "country"
+        description: "name of the country"
+      - id: weather_info
+        action: action_give_weather
+        next: 
+          - if: slots.temperature < 15
+            then: "temperature_warning"
+          - else: "nice_choice"
+      - id: "nice_choice"
+        action: "utter_nice_choice"
+        next: END
+      - id: "temperature_warning"
+        action: "utter_temperature_warning"
+        next: END

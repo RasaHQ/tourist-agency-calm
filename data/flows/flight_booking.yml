@@ -1,0 +1,23 @@
+flows:
+  book_flight:
+    description: books a flight for travel purposes
+    name: book flight
+    steps:
+      - collect: "departure_city"
+        description: "departure city"
+      - collect: "flight_destination"
+        description: "travel destination"
+      - collect: "passenger_count"
+        description: "number of passengers"
+      - collect: "class_preference"
+        description: "preferred class (e.g., economy, business)"
+      - collect: "flight_confirmation"
+        ask_before_filling: true
+        next:
+          - if: slots.flight_confirmation
+            then:
+              - action: utter_confirm_flight_booking
+                next: END
+          - else:
+              - action: utter_cancel_flight_booking
+                next: END
