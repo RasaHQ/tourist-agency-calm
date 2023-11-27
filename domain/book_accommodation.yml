@@ -10,11 +10,11 @@ slots:
     mappings:
       - type: custom
   number_of_people:
-    type: text
+    type: float
     mappings:
       - type: custom
   number_of_rooms:
-    type: text
+    type: float
     mappings:
       - type: custom
   days:
@@ -27,6 +27,10 @@ slots:
       - type: custom
   booking_confirmation:
     type: bool
+    mappings:
+      - type: custom
+  age:
+    type: float
     mappings:
       - type: custom
 
@@ -69,3 +73,15 @@ responses:
 
   utter_ask_booking_confirmation:
     - text: "Are you sure you want to make a booking with the following details - Name: {person_name}, Destination: {destination}, Accommodation type: {accommodation_type}, Number of people: {number_of_people}, Number of rooms: {number_of_rooms}, Days: {days}?"
+
+  utter_age_at_least_18:
+    - text: "You need to be at least 18 years old"
+
+  utter_invalid_age:
+    - text: "Invalid Age input"
+
+  utter_ask_age:
+    - text: "How old are you?"
+
+  utter_invalid_number_of_rooms_input:
+    - text: "You entered greater number for rooms than for the number of people"

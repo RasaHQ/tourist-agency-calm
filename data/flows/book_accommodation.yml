@@ -5,13 +5,20 @@ flows:
     steps:
       - collect: "person_name"
         description: "name of the person"
+      - collect: "age"
+        rejections:
+          - if: slots.age < 1
+            utter: utter_invalid_age
+          - if: slots.age < 18
+            utter: utter_age_at_least_18
       - collect: "destination"
         description: "travel destination"
       - collect: "number_of_people"
         description: "number of people for destination"
       - collect: "number_of_rooms"
-        description: "number of rooms needed for booking"
-      - collect: "days"
+        description: "number of rooms for booking"
+      - id: "day_step"
+        collect: "days"
         description: "number of days for staying"
       - collect: "accommodation_type"
         description: "booking accommodation type"
